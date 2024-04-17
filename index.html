@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cesar's Portafolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-pc.css" media="screen and (min-width: 768px)">
+    <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 767px)">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -30,26 +38,36 @@
     
 
     <section id="projects" class="project-grid">
-        <!-- Example of a project card -->
-        <div class="card">
-            <img src="https://playwright.dev/img/playwright-logo.svg" alt="Project Image">
-            <h3>Playwright Project</h3>
-            <p>Automate Swag Labs website, using Playwright with Typescript.</p>
-            <a href="https://github.com/cesarrmg08/swag-labs-playwright">View on GitHub</a>
+        <h2>Projects</h2><br>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide card">
+                    <img src="https://playwright.dev/img/playwright-logo.svg" alt="Project Image">
+                    <h3>Playwright Project</h3>
+                    <p>Automate Swag Labs website, using Playwright with Typescript.</p>
+                    <a href="https://github.com/cesarrmg08/swag-labs-playwright">View on GitHub</a>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide card">
+                    <img src="https://asset.brandfetch.io/idIq_kF0rb/idv3zwmSiY.jpeg" alt="Project Image">
+                    <h3>Cypress Project</h3>
+                    <p>Using Cypress with javascript.</p>
+                    <a href="https://github.com/username/project" target="_blank">View on GitHub</a>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" alt="Project Image">
+                    <h3>Selenium Project</h3>
+                    <p>Using Selenium with Java</p>
+                    <a href="https://github.com/username/project" target="_blank">View on GitHub</a>
+                </div>
+                <!-- Additional slides as needed -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
-        <div class="card">
-            <img src="https://asset.brandfetch.io/idIq_kF0rb/idv3zwmSiY.jpeg" alt="Project Image">
-            <h3>Cypress Project</h3>
-            <p>Using Cypress with javascript.</p>
-            <a href="https://github.com/username/project" target="_blank">View on GitHub</a>
-        </div>
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" alt="Project Image">
-            <h3>Selenium Project</h3>
-            <p>Using Selenium with Java</p>
-            <a href="https://github.com/username/project" target="_blank">View on GitHub</a>
-        </div>
-        <!-- Add more cards as needed -->
     </section>
 
     <section id="about" class="about-me">
@@ -73,5 +91,6 @@
         </a>
     </section>
     <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
