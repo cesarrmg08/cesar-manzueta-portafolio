@@ -21,19 +21,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Evento de scroll con la rueda del mouse para navegar entre secciones
-    window.addEventListener('wheel', (e) => {
-        e.preventDefault(); // Prevenir el comportamiento predeterminado de scroll
-        const currentSection = document.elementFromPoint(0, window.innerHeight / 2);
-        let targetSection = e.deltaY < 0 ? currentSection.previousElementSibling : currentSection.nextElementSibling;
-
-        if (targetSection && targetSection.tagName === 'SECTION') {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+// Función throttle para limitar la cantidad de ejecuciones
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
         }
+    }
+}
 
-        // Llamar a updateActiveLink después de un corto delay para asegurarse de que la sección esté en la vista
-        setTimeout(updateActiveLink, 500);
-    }, { passive: false });
+window.addEventListener('wheel', throttle((e) => {
+    e.preventDefault();
+    const currentSection = document.elementFromPoint(0, window.innerHeight / 2);
+    let targetSection = e.deltaY < 0 ? currentSection.previousElementSibling : currentSection.nextElementSibling;
+
+    if (targetSection && targetSection.tagName === 'SECTION') {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setTimeout(updateActiveLink, 500);
+}, 100), { passive: false }); // Throttle cada 100ms
 
     // Actualizar el enlace activo también en scroll normal
     window.addEventListener('scroll', updateActiveLink);
