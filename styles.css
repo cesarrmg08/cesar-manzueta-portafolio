@@ -1,0 +1,247 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    scroll-behavior: smooth;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333333;
+    background-color: #FFFFFF;
+    overflow-x: hidden; /* Hide horizontal scroll */
+    scroll-snap-type: y mandatory; /* Vertical snapping */
+    overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+/* General padding for all sections */
+section {
+    padding: 80px 10%; /* Responsive padding with 10% on the sides */
+    min-height: 100vh; /* Makes each section take at least full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+/* Navigation bar styles */
+.navbar {
+    width: 100%;
+    background-color: #333333;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.navbar a.active {
+    color: #FFC107; /* Cambia este color al que prefieras para el elemento activo */
+}
+
+.navbar a:hover {
+    color: #FFC107;
+}
+
+/* Project grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Only 3 cards per row */
+    gap: 20px;
+    justify-content: center; /* Center grid within the section */
+    background-color: #E1F5FE;
+}
+
+.card {
+    background-color: #FFFFFF;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover */
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight scale-up on hover */
+}
+
+/* About Me section */
+.about-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.about-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.about-text {
+    width: 70%;
+    padding-left: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Only 1 card per row on small screens */
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+.about-me {
+    background-color: #607D8B;
+    color: #FFFFFF;
+}
+/* Footer styles */
+/* Contact section similar styling */
+.contact-info {
+    padding: 80px 10%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333; /* Assuming a darker background for contrast */
+    color: #FFFFFF; /* White text for better visibility on dark background */
+}
+
+.contact-info a {
+    color: #FFC107; /* Gold color for links to stand out */
+    text-decoration: none;
+    margin: 10px;
+    animation: pulsate 2s infinite ease-in-out;
+}
+
+.contact-info img {
+    width: 50px; /* Larger icons for visibility */
+    height: 50px;
+    margin: 10px;
+}
+
+p a {
+    text-decoration: none; /* Removes the underline */
+    color: #FFC107;
+    font-weight: bold;
+}
+
+/* Keyframes para la animación 'pulsate' */
+@keyframes pulsate {
+    0% {
+      transform: scale(0.9);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.9);
+      opacity: 0.5;
+    }
+  }
+  
+  /* Aplicar la animación al enlace dentro de la sección home */
+  .home a {
+    display: inline-block; /* Permite la transformación */
+    animation: pulsate 2s infinite ease-in-out; /* La animación se repite indefinidamente */
+    text-decoration: none; /* Quita el subrayado para que no distraiga */
+    color: #FFC107; /* Opcional: Cambia el color para resaltar */
+    transition: color 0.2s; /* Suaviza el cambio de color al hacer hover */
+  }
+  
+  /* Opcional: Cambiar el color al hacer hover para indicar interactividad */
+  .home a:hover {
+    color: #333333; /* O el color que desees al hacer hover */
+  }
+  
+  .home h1 {
+    overflow: hidden; /* Previene que las palabras animadas se muestren fuera de la vista */
+  }
+  
+  .home h1 span {
+    display: inline-block;
+    margin-right: 0.2em; /* Ajusta al gusto para el espaciado entre palabras */
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: dropIn 0.5s forwards ease-out;
+  }
+  
+  .home h1 span:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+  .home h1 span:nth-child(2) {
+    animation-delay: 0.7s;
+  }
+  .home h1 span:nth-child(3) {
+    animation-delay: 0.9s;
+  }
+  .home h1 span:nth-child(4) {
+    animation-delay: 1.1s;
+  }
+  
+  @keyframes dropIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
